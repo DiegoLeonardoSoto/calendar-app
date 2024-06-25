@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { onAddNewEvent, onSetActiveEvent } from '../store'
+import { onAddNewEvent, onSetActiveEvent, onUpdateEvent } from '../store'
 
 export const useCalendarStore = () => {
   const { events, activeEvent } = useSelector((store) => store.calendar)
@@ -14,6 +14,8 @@ export const useCalendarStore = () => {
 
     if (calendarEvent._id) {
       //*update
+
+      dispatch(onUpdateEvent({ ...calendarEvent }))
     } else {
       //*create
       //* as the event is new it doesn't have an id, so it's necessary to create one
