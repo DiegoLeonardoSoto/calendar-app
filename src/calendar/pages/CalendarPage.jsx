@@ -13,7 +13,7 @@ export const CalendarPage = () => {
     localStorage.getItem('lastView') || 'week'
   )
 
-  const eventStylesGetter = (event, start, end, isSelected) => {
+  const eventStylesGetter = (event) => {
     const isMyEvent = user.id === event.user._id || user.uid === event.user._id
 
     const style = {
