@@ -7,6 +7,6 @@ export const AUTH_ENDPOINTS = {
 export const EVENTS_ENDPOINTS = {
   CREATE_EVENT: '/events',
   READ_EVENTS: '/events',
-  UPDATE_EVENT: '/events',
-  DELETE_EVENT: '/events'
+  UPDATE_EVENT: '/events/',
+  DELETE_EVENT: '/events/'
 }
