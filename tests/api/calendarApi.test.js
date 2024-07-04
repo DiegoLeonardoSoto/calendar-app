@@ -10,7 +10,9 @@ describe('test on calendarApi', () => {
     const token = 'ABC-123-XYZ'
 
     localStorage.setItem('token', token)
+
     const res = await calendarApi.get('/auth')
+
     expect(res.config.headers['x-token']).toBe(token)
   })
 })
