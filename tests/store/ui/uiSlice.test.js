@@ -5,7 +5,7 @@ import {
 } from '../../../src/store/ui/uiSlice'
 
 describe('test on uiSlice', () => {
-  test('should return default state', () => {
+  test('should return initial state', () => {
     expect(uiSlice.getInitialState().isDateModalOpen).toBeFalsy()
   })
 
