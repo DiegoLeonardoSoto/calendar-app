@@ -1,10 +1,14 @@
 import {
   calendarSlice,
   onAddNewEvent,
+  onDeleteEvent,
+  onLoadEvents,
+  onLogoutCalendar,
   onSetActiveEvent,
   onUpdateEvent
 } from '../../../src/store/calendar/calendarSlice'
 import {
+  calendarWithActiveEventsState,
   calendarWithEventsState,
   events,
   initialState
@@ -55,5 +59,28 @@ describe('test on calendarSlice', () => {
     )
 
     expect(state.events).toContain(updatedEvent)
+  })
+
+  test('onDeleteEvent should delete the active event ', () => {
+    const state = calendarSlice.reducer(
+      calendarWithActiveEventsState,
+      onDeleteEvent()
+    )
+    expect(state.activeEvent).toBe(null)
+    expect(state.events).not.toContain(events[0])
+  })
+
+  test('onLoadEvents should load events ', () => {
+    const state = calendarSlice.reducer(initialState, onLoadEvents(events))
+    expect(state.isLoadingEvents).toBeFalsy()
+    expect(state.events).toEqual(events)
+  })
+
+  test('onLogoutCalendar should clean the state ', () => {
+    const state = calendarSlice.reducer(
+      calendarWithEventsState,
+      onLogoutCalendar()
+    )
+    expect(state).toEqual(initialState)
   })
 })
