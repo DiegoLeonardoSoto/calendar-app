@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { authSlice, STATUS } from '../../src/store'
-import { initialState, notAuthenticatedState } from '../__fixture/authState'
+import { initialState, notAuthenticatedState } from '../__fixture__/authState'
 import { renderHook, waitFor } from '@testing-library/react'
 import { useAuthStore } from '../../src/hooks/useAuthStore'
 import { Provider } from 'react-redux'
 import { act } from 'react'
-import { testUserCredentials } from '../__fixture/testUser'
+import { testUserCredentials } from '../__fixture__/testUser'
 import { calendarApi } from '../../src/api'
 import { AUTH_ENDPOINTS } from '../../src/api/calendarEndpoints'
 
